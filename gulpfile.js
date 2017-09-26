@@ -2,7 +2,9 @@ var gulp = require('gulp'),
 sass = require('gulp-sass'),
 cleanCSS = require('gulp-clean-css'),
 rename = require("gulp-rename"),
-plumber = require('gulp-plumber');
+plumber = require('gulp-plumber'),
+gutil = require('gulp-util'),
+notify = require('gulp-notify');
 
 //var connect = require('gulp-connect');
 
@@ -12,17 +14,31 @@ var config = {
 }
 //keeps gulp from crashing for scss errors & gives sass access to bootstrap
 gulp.task('sass', function() {
-    return gulp.src( config.sassDir + '*.scss')
-        .pipe(plumber())
-        .pipe(sass({ 
-            errLogToConsole: true
-        }))
+    gulp.src( config.sassDir + '*.scss')
+        .pipe(plumber({ errorHandler: function(err) {
+            notify.onError({
+                title: "Gulp error in " + err.plugin,
+                message:  err.toString()
+            })(err);
+
+            // play a sound once
+            gutil.beep();
+        }})) 
+        .pipe(sass())
         .pipe(gulp.dest(config.publicDir));
 });
 
 gulp.task('cssmin', function(){
-    return gulp.src(config.publicDir + '/app.css')
-        .pipe(plumber())
+    gulp.src(config.publicDir + '/app.css')
+        .pipe(plumber({ errorHandler: function(err) {
+            notify.onError({
+                title: "Gulp error in " + err.plugin,
+                message:  err.toString()
+            })(err);
+
+            // play a sound once
+            gutil.beep();
+        }})) 
         .pipe(cleanCSS())
         .pipe(rename({
             suffix: '.min'
