@@ -1,2 +1,7 @@
 /node_modules
-/assets/*
+
+# exclude everything
+assets/*
+
+# exception to the rule
+!assets/.gitkeep
