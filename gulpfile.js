@@ -30,25 +30,13 @@ gulp.task('sass', function() {
             gutil.beep();
         }})) 
         .pipe(sass())
-        .pipe(gulp.dest(config.publicCSSDir));
-});
-
-gulp.task('cssmin', function(){
-    gulp.src(config.publicCSSDir + '/app.css')
-        .pipe(plumber({ errorHandler: function(err) {
-            notify.onError({
-                title: "Gulp error in " + err.plugin,
-                message:  err.toString()
-            })(err);
-
-            // play a sound once
-            gutil.beep();
-        }})) 
-        .pipe(cleanCSS())
+        .pipe(gulp.dest(config.publicCSSDir))
         .pipe(rename({
             suffix: '.min'
-          }))
+        }))
+        .pipe(cleanCSS())     
         .pipe(gulp.dest(config.publicCSSDir));
+
 });
 
 gulp.task('scripts', function(){
@@ -72,7 +60,6 @@ gulp.task('scripts', function(){
 
 gulp.task('watch', function() {
     gulp.watch(config.sassDir + '*.scss', ['sass']);
-    gulp.watch(config.publicCSSDir + '/app.css', ['cssmin']);
     gulp.watch(config.jsDir + '*.js', ['scripts']);
 });
 
