@@ -26,7 +26,16 @@
 	<div class="row">
 
 	<div class="col-md-2">
-		<a href="<?php echo home_url(); ?>" title="Home Page" class="logo-text"><h1>tp<span class="blue">Township</span></h1></a>
+
+	<?php
+		//Custom Logo
+		$custom_logo_id = get_theme_mod( 'custom_logo' );
+		$logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+		if ( has_custom_logo() ) {
+			echo '<a href="'.get_home_url().'" title="Home Page"><img src="'. esc_url( $logo[0] ) .'" class="header-logo"></a>';
+			}
+	?>
+	
 	</div>
 	<div class="col-md-10 text-right">
 

@@ -107,13 +107,7 @@ add_action( 'init', 'tp_pagesetup' );
  */
 function tp_scripts() {
 
-	wp_enqueue_style('tp-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700|Open+Sans:400,700');
-
-	wp_enqueue_style('tp-bootstrap-css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
-
-	wp_enqueue_style('tp-bs-overwrite', get_template_directory_uri() . '/css/bs-overwrite.css');
-
-	wp_enqueue_style('tp-style-main', get_template_directory_uri() . '/css/main.css');
+	wp_enqueue_style('tp-bootstrap-css', get_template_directory_uri().'/css/app.css');
 
 	wp_enqueue_style( 'tp-style', get_stylesheet_uri() );
 
@@ -121,13 +115,11 @@ function tp_scripts() {
 	 * Libraries
 	 */
 
-	wp_enqueue_script( 'tp-bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), '3.3.4', true );
+	wp_enqueue_script( 'tp-bootstrap-js', get_template_directory_uri() . '/assets/bootstrap-sass/assets/javascripts/bootstrap.min.js', array('jquery'), '3.3.4', true );
 
 	wp_enqueue_script( 'tp-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'tp-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-
-	wp_enqueue_script('tp-js-functions', get_template_directory_uri() . '/js/function.js', array('jquery'), '1.0', true);
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -135,53 +127,42 @@ function tp_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'tp_scripts' );
 
-/**
- * Admin Add Scripts
- */
-function msf_admin_scripts(){
-
-	wp_enqueue_script( 'tp-admin-js', get_template_directory_uri() . '/js/admin.js', array('jquery'), '3.3.4', true );
-	wp_enqueue_style('tp-admin-css', get_template_directory_uri() . '/css/admin.css');
-
-}
-add_action( 'admin_enqueue_scripts', 'msf_admin_scripts' );
-
 
 /**
  * Remove Options from toolbar
  */
- function webriti_remove_admin_bar_links() {
- global $wp_admin_bar;
+ function tp_remove_admin_bar_links() {
+	global $wp_admin_bar;
 
- //Remove WordPress Logo Menu Items
- $wp_admin_bar->remove_menu('wp-logo'); // Removes WP Logo and submenus completely, to remove individual items, use the below mentioned codes
- $wp_admin_bar->remove_menu('about'); // 'About WordPress'
- $wp_admin_bar->remove_menu('wporg'); // 'WordPress.org'
- $wp_admin_bar->remove_menu('documentation'); // 'Documentation'
- $wp_admin_bar->remove_menu('support-forums'); // 'Support Forums'
- $wp_admin_bar->remove_menu('feedback'); // 'Feedback'
+	//Remove WordPress Logo Menu Items
+	$wp_admin_bar->remove_menu('wp-logo'); // Removes WP Logo and submenus completely, to remove individual items, use the below mentioned codes
+	$wp_admin_bar->remove_menu('about'); // 'About WordPress'
+	$wp_admin_bar->remove_menu('wporg'); // 'WordPress.org'
+	$wp_admin_bar->remove_menu('documentation'); // 'Documentation'
+	$wp_admin_bar->remove_menu('support-forums'); // 'Support Forums'
+	$wp_admin_bar->remove_menu('feedback'); // 'Feedback'
 
 
- $wp_admin_bar->remove_menu('themes'); // 'Themes'
- $wp_admin_bar->remove_menu('widgets'); // 'Widgets'
- $wp_admin_bar->remove_menu('menus'); // 'Menus'
+	$wp_admin_bar->remove_menu('themes'); // 'Themes'
+	$wp_admin_bar->remove_menu('widgets'); // 'Widgets'
+	$wp_admin_bar->remove_menu('menus'); // 'Menus'
 
- // Remove Comments Bubble
- $wp_admin_bar->remove_menu('comments');
+	// Remove Comments Bubble
+	$wp_admin_bar->remove_menu('comments');
 
- //Remove Update Link if theme/plugin/core updates are available
- $wp_admin_bar->remove_menu('updates');
+	//Remove Update Link if theme/plugin/core updates are available
+	$wp_admin_bar->remove_menu('updates');
 
- //Remove '+ New' Menu Items
- $wp_admin_bar->remove_menu('new-content'); // Removes '+ New' and submenus completely, to remove individual items, use the below mentioned codes
- $wp_admin_bar->remove_menu('new-post'); // 'Post' Link
- $wp_admin_bar->remove_menu('new-media'); // 'Media' Link
- $wp_admin_bar->remove_menu('new-link'); // 'Link' Link
- $wp_admin_bar->remove_menu('new-page'); // 'Page' Link
- $wp_admin_bar->remove_menu('new-user'); // 'User' Link
-
+	//Remove '+ New' Menu Items
+	$wp_admin_bar->remove_menu('new-content'); // Removes '+ New' and submenus completely, to remove individual items, use the below mentioned codes
+	$wp_admin_bar->remove_menu('new-post'); // 'Post' Link
+	$wp_admin_bar->remove_menu('new-media'); // 'Media' Link
+	$wp_admin_bar->remove_menu('new-link'); // 'Link' Link
+	$wp_admin_bar->remove_menu('new-page'); // 'Page' Link
+	$wp_admin_bar->remove_menu('new-user'); // 'User' Link
  }
- add_action( 'wp_before_admin_bar_render', 'webriti_remove_admin_bar_links' );
+ 
+ add_action( 'wp_before_admin_bar_render', 'tp_remove_admin_bar_links' );
 
 
 /**

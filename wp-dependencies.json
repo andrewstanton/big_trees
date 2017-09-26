@@ -6,5 +6,13 @@
     "uri": "https://wordpress.org/plugins/live-composer-page-builder/",
     "branch": "trunk",
     "optional": false
+  },
+  {
+    "name": "List category posts",
+    "host": "wordpress",
+    "slug": "list-category-posts/list-category-posts.php",
+    "uri": "https://wordpress.org/plugins/list-category-posts/",
+    "branch": "trunk",
+    "optional": false
   }
 ]

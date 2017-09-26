@@ -16,7 +16,8 @@
  *
  * @uses tp_header_style()
  */
-/*function tp_custom_header_setup() {
+
+function tp_custom_header_setup() {
 
 	add_theme_support( 'custom-logo', array(
 			'height'      => 125,
@@ -35,7 +36,7 @@
 		'wp-head-callback'       => 'tp_header_style',
 	) ) );
 }
-add_action( 'after_setup_theme', 'tp_custom_header_setup' );*/
+add_action( 'after_setup_theme', 'tp_custom_header_setup' );
 
 if ( ! function_exists( 'tp_header_style' ) ) :
 /**
