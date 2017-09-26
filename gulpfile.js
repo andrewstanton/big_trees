@@ -20,7 +20,7 @@ gulp.task('sass', function() {
 });
 
 gulp.task('cssmin', function(){
-    return gulp.src(config.publicDir + '/*.css')
+    return gulp.src(config.publicDir + '/app.css')
         .pipe(cleanCSS())
         .pipe(rename({
             suffix: '.min'
@@ -29,7 +29,8 @@ gulp.task('cssmin', function(){
 });
 
 gulp.task('watch', function() {
-    gulp.watch(config.sassDir + '*.scss', ['sass', 'cssmin']);
+    gulp.watch(config.sassDir + '*.scss', ['sass']);
+    gulp.watch(config.publicDir + '/app.css', ['cssmin']);
 });
 
-gulp.task('default', ['sass', 'cssmin', 'watch']);
+gulp.task('default', ['sass', 'watch']);
