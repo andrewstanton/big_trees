@@ -4,14 +4,19 @@ cleanCSS = require('gulp-clean-css'),
 rename = require("gulp-rename"),
 plumber = require('gulp-plumber'),
 gutil = require('gulp-util'),
-notify = require('gulp-notify');
+notify = require('gulp-notify'),
+concat = require('gulp-concat'),
+uglify = require('gulp-uglify');
 
 //var connect = require('gulp-connect');
 
 var config = {
-    publicDir: './css',
-    sassDir: './production/sass/'
+    publicCSSDir: './css',
+    publicJSCompDir: './js',
+    sassDir: './production/sass/',
+    jsDir: './production/js/'
 }
+
 //keeps gulp from crashing for scss errors & gives sass access to bootstrap
 gulp.task('sass', function() {
     gulp.src( config.sassDir + '*.scss')
@@ -25,11 +30,11 @@ gulp.task('sass', function() {
             gutil.beep();
         }})) 
         .pipe(sass())
-        .pipe(gulp.dest(config.publicDir));
+        .pipe(gulp.dest(config.publicCSSDir));
 });
 
 gulp.task('cssmin', function(){
-    gulp.src(config.publicDir + '/app.css')
+    gulp.src(config.publicCSSDir + '/app.css')
         .pipe(plumber({ errorHandler: function(err) {
             notify.onError({
                 title: "Gulp error in " + err.plugin,
@@ -43,12 +48,33 @@ gulp.task('cssmin', function(){
         .pipe(rename({
             suffix: '.min'
           }))
-        .pipe(gulp.dest(config.publicDir));
+        .pipe(gulp.dest(config.publicCSSDir));
+});
+
+gulp.task('scripts', function(){
+    gulp.src(config.jsDir + '*.js')
+    .pipe(plumber({ errorHandler: function(err) {
+        notify.onError({
+            title: "Gulp error in " + err.plugin,
+            message:  err.toString()
+        })(err);
+
+        // play a sound once
+        gutil.beep();
+    }}))
+    .pipe(concat('app.js'))
+    .pipe(gulp.dest( config.publicJSCompDir ))
+    .pipe(rename({
+        suffix: '.min'
+      }))
+    .pipe(uglify())
+    .pipe(gulp.dest( config.publicJSCompDir ));
 });
 
 gulp.task('watch', function() {
     gulp.watch(config.sassDir + '*.scss', ['sass']);
-    gulp.watch(config.publicDir + '/app.css', ['cssmin']);
+    gulp.watch(config.publicCSSDir + '/app.css', ['cssmin']);
+    gulp.watch(config.jsDir + '*.js', ['scripts']);
 });
 
-gulp.task('default', ['sass', 'watch']);
+gulp.task('default', ['sass', 'scripts', 'watch']);
