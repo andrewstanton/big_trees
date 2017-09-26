@@ -45,9 +45,7 @@ function tp_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'menu-1' => esc_html__( 'Primary', 'tp' ),
-		'footer-menu-1' => __( 'Footer 1', 'tp' ),
-		'footer-menu-2' => __( 'Footer 2', 'tp'),
-		'footer-menu-3' => __('Footer 3', 'tp')
+		'footer-menu' => __( 'Footer', 'tp' ),
 	) );
 
 	/*
@@ -107,14 +105,19 @@ add_action( 'init', 'tp_pagesetup' );
  */
 function tp_scripts() {
 
-	wp_enqueue_style('tp-bootstrap-css', get_template_directory_uri().'/css/app.css');
-
-	wp_enqueue_style( 'tp-style', get_stylesheet_uri() );
-
 	/*
-	 * Libraries
+	 * CSS Files
 	 */
 
+	//UnderScores CSS
+	wp_enqueue_style( 'tp-style', get_stylesheet_uri() );
+
+	//Bootstrap and Custom CSS from Gulp SASS
+	wp_enqueue_style('tp-app-css', get_template_directory_uri().'/css/app.css');
+
+	/*
+	 * JS Files
+	 */
 	wp_enqueue_script( 'tp-bootstrap-js', get_template_directory_uri() . '/assets/bootstrap-sass/assets/javascripts/bootstrap.min.js', array('jquery'), '3.3.4', true );
 
 	wp_enqueue_script( 'tp-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );

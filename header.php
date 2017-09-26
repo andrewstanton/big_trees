@@ -31,9 +31,15 @@
 		//Custom Logo
 		$custom_logo_id = get_theme_mod( 'custom_logo' );
 		$logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+		
+		//Logo
 		if ( has_custom_logo() ) {
 			echo '<a href="'.get_home_url().'" title="Home Page"><img src="'. esc_url( $logo[0] ) .'" class="header-logo"></a>';
 			}
+		//Or Put Name
+		else{
+			echo '<a href="'.get_home_url().'" title="Home Page">' . bloginfo( 'name' ) . '</a>';
+		}
 	?>
 	
 	</div>
