@@ -1,9 +1,12 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
+var gulp = require('gulp'),
+sass = require('gulp-sass'),
+cleanCSS = require('gulp-clean-css'),
+rename = require("gulp-rename");
+
 //var connect = require('gulp-connect');
 
 var config = {
-    publicDir: './',
+    publicDir: './css',
     sassDir: './production/sass/'
 }
 
@@ -13,11 +16,20 @@ gulp.task('sass', function() {
         .pipe(sass({ 
             errLogToConsole: true
         }))
-        .pipe(gulp.dest(config.publicDir + 'css'));
+        .pipe(gulp.dest(config.publicDir));
+});
+
+gulp.task('cssmin', function(){
+    return gulp.src(config.publicDir + '/*.css')
+        .pipe(cleanCSS())
+        .pipe(rename({
+            suffix: '.min'
+          }))
+        .pipe(gulp.dest(config.publicDir));
 });
 
 gulp.task('watch', function() {
-    gulp.watch(config.sassDir + '*.scss', ['sass']);
+    gulp.watch(config.sassDir + '*.scss', ['sass', 'cssmin']);
 });
 
-gulp.task('default', ['sass', 'watch']);
+gulp.task('default', ['sass', 'cssmin', 'watch']);
