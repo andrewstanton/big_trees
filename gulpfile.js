@@ -58,7 +58,6 @@ gulp.task('scripts', function(){
             title: "Gulp error in " + err.plugin,
             message:  err.toString()
         })(err);
-
         // play a sound once
         gutil.beep();
     }}))
