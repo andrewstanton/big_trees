@@ -1,6 +1,5 @@
 /node_modules
-
-# exclude everything
+/vendor
 assets/*
 
 # exception to the rule

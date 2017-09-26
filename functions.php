@@ -209,3 +209,8 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+
+//Load Plugin Dependency
+include_once( __DIR__ . '/vendor/autoload.php' );
+WP_Dependency_Installer::instance()->run( __DIR__ );
