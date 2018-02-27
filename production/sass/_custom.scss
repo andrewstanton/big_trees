@@ -61,8 +61,9 @@ header {
 //Banner
 .slide-image-background {
     height: 400px;
-    background-position: center center;
+    background-position: bottom center;
     background-size: cover;
+    background-attachment: fixed;
 }
 .carousel-caption {
     bottom: 25%;
@@ -118,4 +119,30 @@ footer {
         }
     }
 
+}
+
+
+
+/*
+ * xs only
+ */
+@media ( max-width: map-get($grid-breakpoints, sm) ){
+}
+
+/*
+ * sm only
+ */
+@media ( min-width: map-get($grid-breakpoints, sm)) and (max-width: map-get($grid-breakpoints, md)){
+}
+
+/*
+ * md only
+ */
+@media ( min-width: map-get($grid-breakpoints, md)) and (max-width: map-get($grid-breakpoints, lg)){
+}
+
+/*
+ * lg only
+ */
+@media ( min-width: map-get($grid-breakpoints, lg)){
 }

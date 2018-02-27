@@ -81,15 +81,6 @@
 	display: block;
 }
 
-@media screen and (min-width: 37.5em) {
-	.menu-toggle {
-		display: none;
-	}
-	.main-navigation ul {
-		display: block;
-	}
-}
-
 .comment-navigation,
 .posts-navigation,
 .post-navigation {
@@ -141,5 +132,52 @@
 		text-decoration: none;
 		font-family: $header_font;
 		font-size: 2em;
+	}
+}
+
+
+/*
+ * xs only
+ */
+@media ( max-width: map-get($grid-breakpoints, sm) ){
+	.main-navigation {
+		ul {
+			text-align: center;
+		}
+		li {
+			display: block;
+		}
+	}
+}
+
+/*
+ * sm only
+ */
+@media ( min-width: map-get($grid-breakpoints, sm) ) and ( max-width: map-get($grid-breakpoints, md) ){
+}
+
+/*
+ * md only
+ */
+@media ( min-width: map-get($grid-breakpoints, md) ) and (max-width: map-get($grid-breakpoints, lg) ){
+}
+
+/*
+ * lg only
+ */
+@media ( min-width: map-get($grid-breakpoints, lg) ){
+}
+
+
+
+/*
+ * Above Small Devices
+ */
+@media ( min-width: map-get($grid-breakpoints, sm) ){
+	.menu-toggle {
+		display: none;
+	}
+	.main-navigation ul {
+		display: block;
 	}
 }

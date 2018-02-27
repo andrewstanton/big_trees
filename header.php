@@ -58,7 +58,7 @@
 	<div class="col-md col-12">
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<div class="mobile-menu-button-container"><button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'big_trees' ); ?></button></div>
+			<div class="mobile-menu-button-container"><button class="menu-toggle btn btn-primary btn-block" aria-controls="primary-menu" aria-expanded="false"><i class="fas fa-bars"></i> <?php esc_html_e( 'Navigation', 'big_trees' ); ?></button></div>
 			<?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu' ) ); ?>
 		</nav><!-- #site-navigation -->
 
