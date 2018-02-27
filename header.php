@@ -20,7 +20,7 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 
-	<div id="top-bar" class="text-right">
+	<div id="top-bar">
 		<div class="container">
 			<div class="d-inline mr-5">
 				<i class="fas fa-envelope"></i> <?php echo get_theme_mod('big_trees_email'); ?>
@@ -36,7 +36,7 @@
 	<div class="container">
 	<div class="row">
 
-	<div class="col-12 col-md-4">
+	<div class="col-12 col-md-5">
 		<div class="logo">
 			<?php 
 				echo '<a href="'.get_home_url().'" title="Home Page">';

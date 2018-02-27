@@ -80,6 +80,9 @@
 .main-navigation.toggled ul {
 	display: block;
 }
+.menu-toggle {
+	padding: $mobile_button_padd !important;
+}
 
 .comment-navigation,
 .posts-navigation,
@@ -154,12 +157,22 @@
  * sm only
  */
 @media ( min-width: map-get($grid-breakpoints, sm) ) and ( max-width: map-get($grid-breakpoints, md) ){
+	.main-navigation {
+		ul {
+			text-align: center;
+		}
+	}
 }
 
 /*
  * md only
  */
 @media ( min-width: map-get($grid-breakpoints, md) ) and (max-width: map-get($grid-breakpoints, lg) ){
+	.main-navigation {
+		li {
+			padding: 0.8em 0.5em;
+		}
+	}
 }
 
 /*

@@ -1,11 +1,15 @@
 //Custom Font File
 
-// Header
+body, html {
+    font-size: 16px;
+}
 
+// Header
 #top-bar {
     padding: 0.5em 0em;
     background-color: $green;
     color: #FFF;
+    text-align: right;
 }
 
 header {
@@ -28,6 +32,7 @@ header {
         }
 
         .sub-logo {
+            color: $green;
             font-family: $header_font;
             font-size: 0.9em;
             display: block;
@@ -65,11 +70,17 @@ header {
     background-size: cover;
     background-attachment: fixed;
 }
-.carousel-caption {
+.internal .slide-image-background {
+    height: 200px;
+    background-attachment: inherit;
+    background-position: center center;
+}
+.index .carousel-caption {
     bottom: 25%;
     top: 25%;
     right: 5%;
     left: inherit;
+    width: 50%;
 
     h2 {
         font-size: 3.2em;
@@ -80,6 +91,11 @@ header {
         font-size: 1.2em;
         line-height: 0.8em;
         margin-bottom: 1.4em;
+    }
+}
+.internal .carousel-caption {
+    h2 {
+        font-size: 3.5em;
     }
 }
 
@@ -127,12 +143,70 @@ footer {
  * xs only
  */
 @media ( max-width: map-get($grid-breakpoints, sm) ){
+    
+    body, html {
+        font-size: 14px;
+    }
+    
+    #top-bar {
+        text-align: center;
+    }
+
+    .btn {
+        padding: $mobile_button_padd;
+        font-size: 1.4em;
+    }
+    .logo {
+        margin-bottom: 1.5em; 
+        .row {
+        width: 240px;
+        margin: auto;
+        }
+    }
+    .slide-image-background {
+        height: 250px;
+    }
+    .carousel-caption {
+        h2 {
+            line-height: 1em !important;
+            font-size: 2.5em !important;
+        }
+        span.excerpt {
+            line-height: 1.5em !important;
+        }
+    }
+    .internal .slide-image-background {
+        height: 150px;
+    }
+    .internal .carousel-caption {
+        h2 {
+            font-size: 4em;
+        }
+    }
 }
 
 /*
  * sm only
  */
 @media ( min-width: map-get($grid-breakpoints, sm)) and (max-width: map-get($grid-breakpoints, md)){
+    .slide-image-background {
+        height: 350px;
+    }
+}
+
+/*
+ * sm and xs
+ */
+@media (max-width: map-get($grid-breakpoints, md)){
+    .index.carousel-caption {
+        width: 100%;
+        bottom: 5%;
+        top: inherit;
+        left: inherit;
+        right: inherit;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
 }
 
 /*

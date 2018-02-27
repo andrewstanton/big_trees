@@ -5,33 +5,29 @@ $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true
 $thumb_url = $thumb_url_array[0];
 
 if(has_post_thumbnail()): ?>
-<div id="home-slider" class="carousel slide" data-ride="carousel">
+<div id="banner" class="carousel slide internal">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="..." alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Third slide">
+      <div class="slide-image-background" style="background-image: url('<?php echo $thumb_url; ?>');"></div>
+
+      <div class="carousel-caption">
+        <h2><?php echo get_the_title(); ?></h2>
+      </div>
+
     </div>
   </div>
 </div>
-<section class="content-banner" style="background-image: url('<?php echo $thumb_url; ?>');">
+<?php else: ?>
+<div id="banner" class="carousel slide internal">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="slide-image-background" style="background-image: url('<?php echo get_template_directory_uri() . '/imgs/banner-default.jpg'; ?>');"></div>
 
-    <?php if(has_excerpt()){ ?>
-    <div class="banner-grid">
-        <div class="banner-excerpt">
+      <div class="carousel-caption">
+        <h2><?php echo get_the_title(); ?></h2>
+      </div>
 
-            <div class="excerpt-back">
-                <?php echo get_the_excerpt(); ?>
-            </div>
-        
-        </div>
     </div>
-    <?php } ?>
-
-</section>
-
+  </div>
+</div>
 <?php endif; ?>

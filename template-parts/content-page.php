@@ -12,15 +12,7 @@
 	<div class="content-body">
 
 	<div class="entry-content">
-
-		<?php
-			if(!is_front_page()){
-				echo '<div class="header-page">
-							<h1 class="page-title">'.get_the_title().'</h1>
-							</div>';
-			}
-		 ?>
-
+		
 		<?php the_content(); ?>
 
 	</div><!-- .entry-content -->
