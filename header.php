@@ -19,26 +19,43 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'big_trees' ); ?></a>
+
+	<div id="top-bar" class="text-right">
+		<div class="container">
+			<div class="d-inline mr-5">
+				<i class="fas fa-envelope"></i> <?php echo get_theme_mod('big_trees_email'); ?>
+			</div>
+			<div class="d-inline">
+				<i class="fas fa-phone"></i> <?php echo get_theme_mod('big_trees_phone'); ?>
+			</div>
+
+		</div>
+	</div>
 
 	<header id="masthead" class="site-header" role="banner">
 	<div class="container">
 	<div class="row">
 
-	<div class="col-md-2">
-	<div class="logo">
-	<?php 
-		echo '<a href="'.get_home_url().'" title="Home Page">';
-	?>
-		<span class="tree-block"><i class="fas fa-tree"></i></span>
-	<?php
-		echo bloginfo( 'name' ) . '<br/>';
-		echo '<span class="sub-logo">' . bloginfo( 'description' ) . '</span>';
-		echo '</a>';
-	?>
+	<div class="col-12 col-md-4">
+		<div class="logo">
+			<?php 
+				echo '<a href="'.get_home_url().'" title="Home Page">';
+			?>
+			<div class="row">
+				<div class="col-auto">
+					<span class="tree-block"><i class="fas fa-tree"></i></span>
+				</div>
+				<div class="col">
+				<?php
+					echo bloginfo( 'name' ) . '<br/>';
+				?>
+				<span class="sub-logo"> <?php echo bloginfo( 'description' ); ?></span>
+				</div>
+			</div><!--row-->
+			<?php echo '</a>'; ?>
+		</div><!--logo-->
 	</div>
-	</div>
-	<div class="col-md-10 text-right">
+	<div class="col-md col-12">
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 			<div class="mobile-menu-button-container"><button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'big_trees' ); ?></button></div>

@@ -117,7 +117,7 @@ function big_trees_scripts() {
 	 */
 	wp_enqueue_script( 'big-trees-font-awesome', 'https://use.fontawesome.com/releases/v5.0.7/js/all.js', array(), '4.0.0', true );
 
-	wp_enqueue_script( 'big-trees-bootstrap-js', get_template_directory_uri() . '/assets/bootstrap-sass/assets/javascripts/bootstrap.min.js', array('jquery'), '3.3.4', true );
+	wp_enqueue_script( 'big-trees-bootstrap-js', get_template_directory_uri() . '/assets/bootstrap/dist/js/bootstrap.min.js', array('jquery'), '3.3.4', true );
 
 	wp_enqueue_script( 'big-trees-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 

@@ -1,1 +1,73 @@
 //Custom Font File
+
+// Header
+
+#top-bar {
+    padding: 0.5em 0em;
+    background-color: $green;
+    color: #FFF;
+}
+
+header {
+    padding: 1em 0;
+    background-color: #FFF;
+    color: $green;
+
+    .logo a {
+        color: $light_green;
+        font-family: $logo_font;
+        font-size: 1.4em;
+
+        .tree-block {
+            display: inline-block;
+            padding: 5px 15px;
+            font-size: 28px;
+            color: #FFF;
+            background: $green;
+            margin-right: 10px;
+        }
+
+        .sub-logo {
+            font-family: $header_font;
+            font-size: 0.9em;
+            display: block;
+            margin-top: -0.3em;
+        }
+
+        &:hover {
+            color: $green;
+            text-decoration: none;
+            .tree-block {
+                background-color: $dark_green;
+            }
+        }
+
+        .row {
+            .col, .col-auto {
+                padding-right: 0px;
+                padding-left: 0px;
+            }
+        }
+
+    }
+}
+
+// Footer
+footer {
+    padding: 2em 0;
+    background: $grey;
+    color: #FFF;
+
+    a, a:link, a:visited, a:hover, a:active {
+        color: #FFF;
+    }
+
+    .footer-note {
+        line-height: 1.2em;
+
+        small {
+            font-size: 12px;
+        }
+    }
+
+}

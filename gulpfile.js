@@ -59,7 +59,7 @@ gulp.task('scripts', function(){
 });
 
 gulp.task('watch', function() {
-    gulp.watch(config.sassDir + '*.scss', ['sass']);
+    gulp.watch(config.sassDir + '**/*.scss', ['sass']);
     gulp.watch(config.jsDir + '*.js', ['scripts']);
 });
 

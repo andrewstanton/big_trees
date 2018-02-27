@@ -12,3 +12,19 @@ $anton: 'Anton', sans-serif;
 $logo_font: $anton;
 $body_font: $arimo;
 $header_font: $teko;
+
+// Colors To Use
+$green: #3c733c;
+$light_green: #4d924d;
+$dark_green: darken($green, 15%);
+$grey: #323232;
+$text: #3b3b3b;
+$nav: #676363;
+
+
+
+
+// Bootstrap Overwrite
+$theme-colors: (
+  "primary": $green
+);

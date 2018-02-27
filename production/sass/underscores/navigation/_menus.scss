@@ -1,14 +1,13 @@
 .main-navigation {
 	clear: both;
 	display: block;
-	float: left;
-	width: 100%;
 
 	ul {
 		display: none;
 		list-style: none;
 		margin: 0;
 		padding-left: 0;
+		text-align: right;
 
 		ul {
 			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -50,23 +49,29 @@
 	}
 
 	li {
-		float: left;
+		display: inline-block;
 		position: relative;
+		padding: 0.8em 1em;
 
 		&:hover > a,
 		&.focus > a {
+			color: $green;
 		}
 	}
 
 	a {
+		color: $nav;
 		display: block;
 		text-decoration: none;
+		font-family: $header_font;
+		font-size: 1.4em;
 	}
 
 	.current_page_item > a,
 	.current-menu-item > a,
 	.current_page_ancestor > a,
 	.current-menu-ancestor > a {
+		color: $dark_green;
 	}
 }
 
@@ -103,5 +108,38 @@
 		float: right;
 		text-align: right;
 		width: 50%;
+	}
+}
+
+
+.footer-nav {
+	clear: both;
+	display: block;
+	margin-bottom: 1em;
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+		text-align: center;
+	}
+
+	li {
+		display: inline-block;
+		position: relative;
+		padding: 0 1em;
+
+		&:hover > a,
+		&.focus > a {
+			text-decoration: underline;
+		}
+	}
+
+	a {
+		color: #FFF;
+		display: block;
+		text-decoration: none;
+		font-family: $header_font;
+		font-size: 2em;
 	}
 }

@@ -15,7 +15,7 @@
 
 	<footer id="colophon" class="site-footer hidden-xs" role="contentinfo">
 		<div class="site-info container">
-		<div class="footer-nav">
+		<nav class="footer-nav">
 			<?php
 
 			if( has_nav_menu( 'footer-menu' ) ){
@@ -24,11 +24,11 @@
 				
 			?>
 
-		</div><!--footer-nav-->
+		</nav><!--footer-nav-->
 
 		<div class="footer-note text-center">
 		<?php bloginfo( 'name' ); ?> - <?php echo bloginfo('description'); ?><br/>
-				<small>Website <?php echo date("Y"); ?> - Developed By <a href="http://toddproductions.com" target="_blank">Todd Productions Inc.</a></small>
+				<small><?php echo date("Y"); ?> Website Developed By <a href="http://toddproductions.com" target="_blank">Todd Productions Inc.</a></small>
 		</div>
 
 		</div><!-- .site-info -->
