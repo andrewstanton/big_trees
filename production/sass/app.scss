@@ -1,15 +1,12 @@
 
 // Google Fonts
-//@import url("");
-
-//Mixins
-@import "mixins";
-
-// Variables
-@import "variables";
+@import url("");
 
 // Bootstrap
-@import "../../assets/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "../../node_modules/bootstrap/scss/bootstrap";
 
-//Custom CSS For Application
-@import "custom";
+// Mixins
+@import "mixins";
+
+// Underscores SASS
+@import "underscores/styles";
