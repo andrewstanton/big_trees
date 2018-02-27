@@ -15,28 +15,21 @@
 
 	<footer id="colophon" class="site-footer hidden-xs" role="contentinfo">
 		<div class="site-info container">
-		<div class="row">
+		<div class="footer-nav">
+			<?php
 
-			<div class="col-xs-4">
+			if( has_nav_menu( 'footer-menu' ) ){
+				wp_nav_menu( array( 'theme_location' => 'footer-menu', 'menu_id' => 'footer-menu' ) );
+				}
+				
+			?>
 
-				<h3><?php bloginfo( 'name' ); ?></h3>
+		</div><!--footer-nav-->
+
+		<div class="footer-note text-center">
+		<?php bloginfo( 'name' ); ?> - <?php echo bloginfo('description'); ?><br/>
 				<small>Website <?php echo date("Y"); ?> - Developed By <a href="http://toddproductions.com" target="_blank">Todd Productions Inc.</a></small>
-			</div>
-
-			<div class="col-xs-8">
-			<div class="footer-nav">
-				<?php
-
-				if( has_nav_menu( 'footer-menu' ) ){
-					wp_nav_menu( array( 'theme_location' => 'footer-menu', 'menu_id' => 'footer-menu' ) );
-					}
-					
-				?>
-
-			</div><!--footer-nav-->
-			</div><!--col-xs-8-->
-
-			</div><!--.row-->
+		</div>
 
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

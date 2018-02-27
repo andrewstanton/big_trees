@@ -1,6 +1,9 @@
 
 // Google Fonts
-@import url("");
+@import url("https://fonts.googleapis.com/css?family=Anton|Arimo:400,700|Teko");
+
+// Custom Variables
+@import "variables";
 
 // Bootstrap
 @import "../../node_modules/bootstrap/scss/bootstrap";
@@ -9,4 +12,4 @@
 @import "mixins";
 
 // Underscores SASS
-@import "underscores/styles";
+@import "underscores/style";

@@ -7,7 +7,7 @@
  * @package Todd Productions Inc.
  */
 
-if ( ! function_exists( 'tp_setup' ) ) :
+if ( ! function_exists( 'big_trees_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -15,14 +15,14 @@ if ( ! function_exists( 'tp_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function tp_setup() {
+function big_trees_setup() {
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
 	 * If you're building a theme based on Todd Productions Inc., use a find and replace
-	 * to change 'tp' to the name of your theme in all the template files.
+	 * to change 'big_trees' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'tp', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'big_trees', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -44,8 +44,8 @@ function tp_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'menu-1' => esc_html__( 'Primary', 'tp' ),
-		'footer-menu' => __( 'Footer', 'tp' ),
+		'menu-1' => esc_html__( 'Primary', 'big_trees' ),
+		'footer-menu' => __( 'Footer', 'big_trees' ),
 	) );
 
 	/*
@@ -63,7 +63,7 @@ function tp_setup() {
 
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'tp_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'big_trees_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
@@ -72,7 +72,7 @@ function tp_setup() {
 	add_theme_support( 'customize-selective-refresh-widgets' );
 }
 endif;
-add_action( 'after_setup_theme', 'tp_setup' );
+add_action( 'after_setup_theme', 'big_trees_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -81,10 +81,10 @@ add_action( 'after_setup_theme', 'tp_setup' );
  *
  * @global int $content_width
  */
-function tp_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'tp_content_width', 640 );
+function big_trees_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'big_trees_content_width', 640 );
 }
-add_action( 'after_setup_theme', 'tp_content_width', 0 );
+add_action( 'after_setup_theme', 'big_trees_content_width', 0 );
 
 
 /*
@@ -93,50 +93,49 @@ add_action( 'after_setup_theme', 'tp_content_width', 0 );
  * Page Excerpts
  *
  */
-function tp_pagesetup() {
+function big_trees_pagesetup() {
 	add_post_type_support( 'page', 'excerpt' );
 	// Add category metabox to page
 	register_taxonomy_for_object_type('category', 'page');
 	}
-add_action( 'init', 'tp_pagesetup' );
+add_action( 'init', 'big_trees_pagesetup' );
 
 /**
  * Enqueue scripts and styles.
  */
-function tp_scripts() {
+function big_trees_scripts() {
 
 	/*
 	 * CSS Files
 	 */
-
-	//UnderScores CSS
-	wp_enqueue_style( 'tp-style', get_stylesheet_uri() );
-
-	//Bootstrap and Custom CSS from Gulp SASS
-	wp_enqueue_style('tp-app-css', get_template_directory_uri().'/css/app.min.css');
+	
+	// Sass Compiled File
+	wp_enqueue_style('big-trees-app-css', get_template_directory_uri().'/css/app.min.css');
 
 	/*
 	 * JS Files
 	 */
-	wp_enqueue_script( 'tp-bootstrap-js', get_template_directory_uri() . '/assets/bootstrap-sass/assets/javascripts/bootstrap.min.js', array('jquery'), '3.3.4', true );
+	wp_enqueue_script( 'big-trees-font-awesome', 'https://use.fontawesome.com/releases/v5.0.7/js/all.js', array(), '4.0.0', true );
 
-	wp_enqueue_script( 'tp-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'big-trees-bootstrap-js', get_template_directory_uri() . '/assets/bootstrap-sass/assets/javascripts/bootstrap.min.js', array('jquery'), '3.3.4', true );
 
-	wp_enqueue_script( 'tp-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'big-trees-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'tp-appjs', get_template_directory_uri() . '/js/app.min.js', array('jquery'), '20170926', true );
+	wp_enqueue_script( 'big-trees-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+
+	wp_enqueue_script( 'big-trees-appjs', get_template_directory_uri() . '/js/app.min.js', array('jquery'), '20170926', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'tp_scripts' );
+add_action( 'wp_enqueue_scripts', 'big_trees_scripts' );
 
 
 /**
  * Remove Options from toolbar
  */
- function tp_remove_admin_bar_links() {
+ function big_trees_remove_admin_bar_links() {
 	global $wp_admin_bar;
 
 	//Remove WordPress Logo Menu Items
@@ -167,7 +166,7 @@ add_action( 'wp_enqueue_scripts', 'tp_scripts' );
 	$wp_admin_bar->remove_menu('new-user'); // 'User' Link
  }
  
- add_action( 'wp_before_admin_bar_render', 'tp_remove_admin_bar_links' );
+ add_action( 'wp_before_admin_bar_render', 'big_trees_remove_admin_bar_links' );
 
 
 /**
