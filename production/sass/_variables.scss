@@ -21,10 +21,14 @@ $grey: #323232;
 $text: #3b3b3b;
 $nav: #676363;
 
+// Padding
+$button_padd: 0.8em 0.6em;
 
 
 
 // Bootstrap Overwrite
 $theme-colors: (
-  "primary": $green
+  "primary": $green,
+  "light": #FFF
 );
+$enable-rounded: false;

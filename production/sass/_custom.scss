@@ -52,9 +52,57 @@ header {
     }
 }
 
+// Body Content
+#content {
+    background: #FFF;
+    color: $text;
+}
+
+//Banner
+.slide-image-background {
+    height: 400px;
+    background-position: center center;
+    background-size: cover;
+}
+.carousel-caption {
+    bottom: 25%;
+    top: 25%;
+    right: 5%;
+    left: inherit;
+
+    h2 {
+        font-size: 3.2em;
+        margin: 0;
+    }
+    span.excerpt {
+        display: block;
+        font-size: 1.2em;
+        line-height: 0.8em;
+        margin-bottom: 1.4em;
+    }
+}
+
+
+// Buttons
+.btn {
+    padding: $button_padd;
+    font-family: $header_font;
+    font-size: 28px;
+
+    &.btn-light {
+       color: $green !important; 
+    }
+
+    .svg-inline--fa {
+        margin-right: 0.2em;
+    }
+
+}
+
+
 // Footer
 footer {
-    padding: 2em 0;
+    padding: 2em 0 6em 0;
     background: $grey;
     color: #FFF;
 
