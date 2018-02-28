@@ -185,6 +185,11 @@ footer {
     }
 }
 
+.content-body .blueimp-gallery {
+    display: none !important;
+}
+
+
 /*
  * sm only
  */
@@ -198,7 +203,7 @@ footer {
  * sm and xs
  */
 @media (max-width: map-get($grid-breakpoints, md)){
-    .index.carousel-caption {
+    .index .carousel-caption {
         width: 100%;
         bottom: 5%;
         top: inherit;

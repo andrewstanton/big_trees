@@ -6257,6 +6257,55 @@ select {
 textarea {
   width: 100%; }
 
+/*
+ * Contact Form 7 Plugin
+ */
+.wpcf7 label {
+  color: #3c733c;
+  font-family: "Teko", sans-serif;
+  font-size: 1.4em;
+  width: 100%; }
+
+.wpcf7 .wpcf7-form-control-wrap {
+  width: 100%; }
+
+.wpcf7 input[type=text], .wpcf7 input[type=email], .wpcf7 textarea, .wpcf7 select {
+  padding: 0.8em;
+  border-radius: 0;
+  border: #323232 1px solid;
+  width: 100%;
+  margin-bottom: 0.5em;
+  font-size: 1rem;
+  color: #323232;
+  font-family: "Arimo", sans-serif !important; }
+  .wpcf7 input[type=text]:focus, .wpcf7 input[type=email]:focus, .wpcf7 textarea:focus, .wpcf7 select:focus {
+    font-style: normal;
+    color: black; }
+
+.wpcf7 textarea {
+  height: 120px; }
+
+.wpcf7 input[type=submit].btn {
+  font-size: 1.5em;
+  background: #3c733c;
+  color: #FFF !important;
+  padding: 0.8em 0.6em;
+  border-radius: 0 !important; }
+
+.wpcf7 div.wpcf7-response-output {
+  padding: 1em;
+  text-align: center;
+  color: #FFF;
+  margin: 0; }
+
+.wpcf7 div.wpcf7-mail-sent-ok {
+  background-color: #1fa81f;
+  border: none; }
+
+.wpcf7 div.wpcf7-mail-sent-ng, .wpcf7 div.wpcf7-spam-blocked, .wpcf7 div.wpcf7-validation-errors {
+  background-color: #f13232;
+  border: none; }
+
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
@@ -6726,6 +6775,9 @@ footer {
   .internal .carousel-caption h2 {
     font-size: 4em; } }
 
+.content-body .blueimp-gallery {
+  display: none !important; }
+
 /*
  * sm only
  */
@@ -6737,7 +6789,7 @@ footer {
  * sm and xs
  */
 @media (max-width: 768px) {
-  .index.carousel-caption {
+  .index .carousel-caption {
     width: 100%;
     bottom: 5%;
     top: inherit;
@@ -6760,6 +6812,8 @@ footer {
 .elementor .section {
   padding-top: 2em !important;
   padding-bottom: 2em !important; }
+  .elementor .section.grey {
+    background-color: #f2f2f2 !important; }
 
 .elementor h1, .elementor h2, .elementor h3, .elementor h4, .elementor h5, .elementor h6, .elementor h7, .elementor h8, .elementor h9 {
   font-family: "Teko", sans-serif !important;
