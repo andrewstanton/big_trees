@@ -19,7 +19,7 @@ if(has_post_thumbnail()): ?>
 
         <?php } ?>
       
-        <a role="button" class="btn btn-light" href="/contact-us"><i class="fas fa-tree"></i> Contact Us Today</a>
+        <a role="button" class="btn btn-light" href="contact-us"><i class="fas fa-tree"></i> Contact Us Today</a>
 
       </div>
 
