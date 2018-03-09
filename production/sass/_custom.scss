@@ -76,12 +76,13 @@ header {
     background-position: center center;
 }
 .index .carousel-caption {
-    bottom: 25%;
-    top: 25%;
+    bottom: 10px;
 
-    h2 {
-        font-size: 3.2em;
+    h3 {
+        font-size: 1.8em;
         margin: 0;
+        margin-left: 0.8em;
+        display: inline-block;
     }
     span.excerpt {
         display: block;
@@ -171,6 +172,9 @@ footer {
         span.excerpt {
             line-height: 1.5em !important;
         }
+    }
+    .index .carousel-caption h3 {
+        display: none;
     }
     .internal .slide-image-background {
         height: 150px;

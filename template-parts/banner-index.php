@@ -11,15 +11,12 @@ if(has_post_thumbnail()): ?>
       <div class="slide-image-background" style="background-image: url('<?php echo $thumb_url; ?>');"></div>
 
       <div class="carousel-caption">
-        <h2><?php echo get_the_title(); ?></h2>
-
-        <?php if(has_excerpt()){ ?>
-          
-          <span class="excerpt"><?php echo get_the_excerpt(); ?></span>
-
-        <?php } ?>
-      
+        
         <a role="button" class="btn btn-light" href="contact-us"><i class="fas fa-tree"></i> Contact Us Today</a>
+      
+        <?php if(has_excerpt()){ ?>
+          <h3><?php echo get_the_excerpt(); ?></h3>
+        <?php } ?>
 
       </div>
 

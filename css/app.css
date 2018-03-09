@@ -6710,11 +6710,12 @@ header {
   background-position: center center; }
 
 .index .carousel-caption {
-  bottom: 25%;
-  top: 25%; }
-  .index .carousel-caption h2 {
-    font-size: 3.2em;
-    margin: 0; }
+  bottom: 10px; }
+  .index .carousel-caption h3 {
+    font-size: 1.8em;
+    margin: 0;
+    margin-left: 0.8em;
+    display: inline-block; }
   .index .carousel-caption span.excerpt {
     display: block;
     font-size: 1.2em;
@@ -6767,6 +6768,8 @@ footer {
     font-size: 2.5em !important; }
   .carousel-caption span.excerpt {
     line-height: 1.5em !important; }
+  .index .carousel-caption h3 {
+    display: none; }
   .internal .slide-image-background {
     height: 150px; }
   .internal .carousel-caption h2 {
