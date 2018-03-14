@@ -6725,6 +6725,9 @@ header {
 .internal .carousel-caption h2 {
   font-size: 3.5em; }
 
+.social-icons {
+  font-size: 1.5em; }
+
 .btn {
   padding: 0.8em 0.6em;
   font-family: "Teko", sans-serif;

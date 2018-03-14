@@ -25,8 +25,11 @@
 			<div class="d-inline mr-5">
 				<i class="fas fa-envelope"></i> <?php echo get_theme_mod('big_trees_email'); ?>
 			</div>
-			<div class="d-inline">
+			<div class="d-inline mr-5">
 				<i class="fas fa-phone"></i> <?php echo get_theme_mod('big_trees_phone'); ?>
+			</div>
+			<div class="d-inline social-icons">
+				<a href="<?php echo get_theme_mod('big_trees_fb'); ?>" target="_blank"><i class="fab fa-facebook-square"></i></a>
 			</div>
 
 		</div>

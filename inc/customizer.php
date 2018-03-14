@@ -26,6 +26,11 @@ function big_trees_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'sanitize_text_field'
 		));
 
+	$wp_customize->add_setting( 'big_trees_fb' , array(
+		'default' => 'http://facebook.com/{your facebook page}',
+		'sanitize_callback' => 'sanitize_text_field'
+		));
+
 	$wp_customize->add_control(
 		new WP_Customize_Control(
 			$wp_customize,
@@ -43,6 +48,17 @@ function big_trees_customize_register( $wp_customize ) {
 			'big_trees_phone',
 			array(
 				'label' => __( 'Phone', 'big_trees' ),
+				'type' => 'text',
+							'section' => 'title_tagline'
+							)
+		));
+
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'big_trees_fb',
+			array(
+				'label' => __( 'Facebook', 'big_trees' ),
 				'type' => 'text',
 							'section' => 'title_tagline'
 							)
